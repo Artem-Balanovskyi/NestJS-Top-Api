@@ -5,7 +5,7 @@ import { AuthDto } from './dto/auth.dto';
 export class AuthController {
 
 	@Post('register')
-		async register(@Body() dto: AuthDto) {
+	async register(@Body() dto: AuthDto) {
 
 	}
 
