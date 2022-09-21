@@ -1,8 +1,5 @@
 import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post } from '@nestjs/common';
-import { SuccessResponse } from 'src/helpers/success.response';
-import { DeleteProductDto } from './dto/delete-product.dto';
 import { FindProductDto } from './dto/find-product.dto';
-import { SaveProductDto } from './dto/save-product.dto';
 import { ProductModel } from './product.model';
 
 @Controller('product')

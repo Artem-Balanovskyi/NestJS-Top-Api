@@ -1,6 +1,6 @@
 # compiled output
 /dist
-/mongo-data-4.4
+/mongo
 /node_modules
 .env
 /uploads
