@@ -43,7 +43,7 @@ export class CreateProductDto {
 	
 	@IsArray()
 	@IsString({ each: true })
-	 tags: string;
+	 tags: string[];
 
 	@IsArray()
 	@ValidateNested()
