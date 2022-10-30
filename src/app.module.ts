@@ -9,21 +9,29 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { getMongoConfig } from './configs/mongo.config';
 import { FilesModule } from './files/files.module';
+import { TelegramModule } from './telegram/telegram.module';
+import { getTelegramConfig } from './configs/telegram.config';
 
 @Module({
-  imports: [
-	ConfigModule.forRoot(),
-	TypegooseModule.forRootAsync({
-		imports: [ConfigModule],
-		inject: [ConfigService],
-		useFactory: getMongoConfig
-	}),
-	AuthModule,
+	imports: [
+		ConfigModule.forRoot(),
+		TypegooseModule.forRootAsync({
+			imports: [ConfigModule],
+			inject: [ConfigService],
+			useFactory: getMongoConfig
+		}),
+		AuthModule,
 		TopPageModule,
 		ProductModule,
 		ReviewModule,
-		FilesModule],
-  controllers: [AppController],
-  providers: [AppService],
+		FilesModule,
+		TelegramModule.forRootAsync({
+			imports: [ConfigModule],
+			inject: [ConfigService],
+			useFactory: getTelegramConfig
+		})
+	],
+	controllers: [AppController],
+	providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
